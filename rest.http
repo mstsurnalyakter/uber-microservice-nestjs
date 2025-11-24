@@ -1,2 +1,5 @@
 ### GET RIDER 
 GET http://localhost:3001
+
+### POST RIDER 
+POST http://localhost:3001/rider
