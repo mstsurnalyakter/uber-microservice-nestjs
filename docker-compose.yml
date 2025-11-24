@@ -1,0 +1,90 @@
+
+version: '3.8'
+
+#MongoDB , PostgreSQL, Redis, Elasticsearch, kibana, Mysql, Postgres 
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - "27017:27017"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  # redis:
+  #   image: redis
+  #   restart: always
+  #   environment:
+  #     REDIS_INITDB_ROOT_USERNAME: root
+  #     REDIS_INITDB_ROOT_PASSWORD: root 
+  # uber-services:
+  #   image: node:24
+  #   container_name: uber-services
+  #   working_dir: /usr/src/app
+  #   volumes:
+  #     - ./:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #   environment:
+  #     - PORT=3000
+  #     - port=3000
+  #     - NODE_ENV=development
+  #   ports:
+  #     - "3000:3000"
+  #   command: sh -c "npm ci --silent && npx nest start uber-services"
+  #   restart: unless-stopped
+
+  # logging-service:
+  #   image: node:24
+  #   container_name: logging-service
+  #   working_dir: /usr/src/app
+  #   volumes:
+  #     - ./:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #   environment:
+  #     - PORT=3001
+  #     - port=3001
+  #     - NODE_ENV=development
+  #   ports:
+  #     - "3001:3001"
+  #   command: sh -c "npm ci --silent && npx nest start logging-service"
+  #   restart: unless-stopped
+
+  # rider-service:
+  #   image: node:24
+  #   container_name: rider-service
+  #   working_dir: /usr/src/app
+  #   volumes:
+  #     - ./:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #   environment:
+  #     - PORT=3002
+  #     - port=3002
+  #     - NODE_ENV=development
+  #   ports:
+  #     - "3002:3002"
+  #   command: sh -c "npm ci --silent && npx nest start rider-service"
+  #   restart: unless-stopped
+
+# Notes:
+# - This compose is intended for development. It bind-mounts the repo and installs
+#   dependencies inside the container at start. For production builds create
+#   per-service Dockerfiles and build optimized images.
+# - Some apps read `process.env.port` (lowercase). To be compatible across
+#   environments this file sets both `PORT` and `port`.
+
+# docker compose up --build
+# npm install mongoose @nest/mongoose
