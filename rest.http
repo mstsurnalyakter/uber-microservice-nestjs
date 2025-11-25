@@ -8,6 +8,9 @@ Content-Type: application/json
 {
   "lat":122.111,
    "lng":34.222,
-   "riderId":"rider123"
+   "riderId":"rider123s3"
 
 }
+
+### GET RIDERS
+GET http://localhost:3001/rider

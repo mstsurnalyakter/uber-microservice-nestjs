@@ -6,7 +6,10 @@ import { RiderModule } from './rider/rider.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/nest-logging-service'),
+    MongooseModule.forRoot(
+      process.env.MONGO_URI ??
+        'mongodb://root:root@localhost:27017/nest-logging-service?authSource=admin',
+    ),
     RiderModule,
   ],
   controllers: [LoggingServiceController],
